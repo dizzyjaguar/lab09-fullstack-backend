@@ -17,10 +17,10 @@ async function run() {
             // map every item in the array data
             data.map(weed => {
                 return client.query(`
-                    INSERT INTO weed (strain, type, smell, thc, outdoor, indoor)
-                    VALUES ($1, $2, $3, $4, $5, $6);
+                    INSERT INTO weed (strain, type, smell, thc, outdoor, indoor, imgUrl)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7);
                 `,
-                [weed.strain, weed.type, weed.smell, weed.thc, weed.outdoor, weed.indoor]);
+                [weed.strain, weed.type, weed.smell, weed.thc, weed.outdoor, weed.indoor, weed.imgUrl]);
 
                 // Use a "parameterized query" to insert the data,
                 // Don't forget to "return" the client.query promise!

@@ -25,7 +25,8 @@ async function run() {
                 smell VARCHAR(256) NOT NULL,
                 thc INTEGER NOT NULL,
                 outdoor BOOLEAN NOT NULL,
-                indoor BOOLEAN NOT NULL
+                indoor BOOLEAN NOT NULL,
+                img VARCHAR(256) NOT NULL,
             )
           
         `);

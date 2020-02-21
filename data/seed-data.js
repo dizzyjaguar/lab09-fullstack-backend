@@ -6,7 +6,7 @@ module.exports = [
         thc: '23',
         outdoor: true,
         indoor: false,
-        imgUrl: 'someUrl'
+        imgUrl: 'https://humboldtseedcompany.com/wp-content/uploads/2019/12/FIRE-OG-STRAIN.jpg'
     },
     {
         strain: 'Blue Dream',
@@ -15,7 +15,7 @@ module.exports = [
         thc: '18',
         outdoor: true,
         indoor: false,
-        imgUrl: 'someUrl'
+        imgUrl: 'https://humboldtseedcompany.com/wp-content/uploads/2019/12/Humboldt-Headband-photo.jpg'
     },
     {
         strain: 'Cookies',
@@ -24,6 +24,6 @@ module.exports = [
         thc: '5',
         outdoor: false,
         indoor: true,
-        imgUrl: 'someUrl'
+        imgUrl: 'https://humboldtseedcompany.com/wp-content/uploads/2019/12/Untitled-2-02.jpg'
     },
 ];
