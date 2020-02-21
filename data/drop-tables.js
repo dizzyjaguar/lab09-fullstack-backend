@@ -11,6 +11,7 @@ async function run() {
         await client.connect();
     
         await client.query(`
+            DROP TABLE IF EXISTS weed;
         `);
 
         console.log('drop tables complete');
