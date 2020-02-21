@@ -20,16 +20,25 @@ app.use(cors());
 
 //API ROUTES
 
+app.get('/hello', (req, res) => {
+    res.json({
+        message: 'hello! :D'
+    });   
+});
 
 
 
+const port = process.env.PORT || 3000;
 
 
 // start server
-app.listen(PORT, () => {
-    console.log('the server is running :D on PORT' PORT)
-})
+app.listen(port, () => {
+    console.log('the server is running :D on PORT', port);
+});
 
+module.exports = {
+    app: app,
+};
 
 
 

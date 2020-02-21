@@ -18,7 +18,7 @@ async function run() {
             data.map(weed => {
                 return client.query(`
                     INSERT INTO weed (strain, type, smell, thc, outdoor, indoor)
-                    VALUES ($1, $2, $3, $4, $5, %6);
+                    VALUES ($1, $2, $3, $4, $5, $6);
                 `,
                 [weed.strain, weed.type, weed.smell, weed.thc, weed.outdoor, weed.indoor]);
 
