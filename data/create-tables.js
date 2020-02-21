@@ -18,6 +18,15 @@ async function run() {
     
         // run a query to create tables
         await client.query(`
+            CREATE TABLE weed (
+                id SERIAL PRIMARY KEY NOT NULL,
+                strain VARCHAR(256) NOT NULL,
+                type VARCHAR(256) NOT NULL,
+                smell VARCHAR(256) NOT NULL,
+                thc INTEGER NOT NULL,
+                outdoor BOOLEAN NOT NULL,
+                indoor BOOLEAN NOT NULL
+            )
           
         `);
 
