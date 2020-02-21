@@ -36,7 +36,7 @@ app.get('/api/weed', async(req, res) => {
         thc,
         outdoor,
         indoor,
-        img
+        imgUrl
         FROM weed;
         `);
         console.log(result);
