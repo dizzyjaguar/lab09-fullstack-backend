@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     });   
 });
 
-app.get('/weed', async(req, res) => {
+app.get('api/weed', async(req, res) => {
     try {
         const result = await client.query(`
         SELECT 
