@@ -26,7 +26,7 @@ async function run() {
                 thc INTEGER NOT NULL,
                 outdoor BOOLEAN NOT NULL,
                 indoor BOOLEAN NOT NULL,
-                img VARCHAR(256) NOT NULL,
+                imgUrl VARCHAR(256) NOT NULL
             )
           
         `);
