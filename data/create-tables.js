@@ -18,6 +18,7 @@ async function run() {
     
         // run a query to create tables
         await client.query(`
+            
             CREATE TABLE types (
                 id SERIAL PRIMARY KEY NOT NULL,
                 name VARCHAR(256) NOT NULL
