@@ -1,7 +1,7 @@
 module.exports = [
     {
         strain: 'O.G. Fire',
-        type: 'indica',
+        type: 'Indica',
         smell: 'gas',
         thc: '23',
         outdoor: true,
@@ -10,7 +10,7 @@ module.exports = [
     },
     {
         strain: 'Blue Dream',
-        type: 'sativa',
+        type: 'Sativa',
         smell: 'floral',
         thc: '18',
         outdoor: true,
@@ -19,7 +19,7 @@ module.exports = [
     },
     {
         strain: 'Cookies',
-        type: 'hybrid',
+        type: 'Hybrid',
         smell: 'pepper',
         thc: '5',
         outdoor: false,
@@ -27,3 +27,4 @@ module.exports = [
         imgUrl: 'https://humboldtseedcompany.com/wp-content/uploads/2019/12/Untitled-2-02.jpg'
     },
 ];
+
