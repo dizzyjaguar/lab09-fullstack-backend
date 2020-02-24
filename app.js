@@ -65,6 +65,7 @@ app.get('/api/type', async (req, res ) => {
 
         res.json(result.rows);
     }
+    // eslint-disable-next-line keyword-spacing
     catch(err) {
         console.log(err);
         res.status(500).json({
@@ -100,7 +101,7 @@ app.post('/api/weed', async(req, res) => {
 });
 
 //showing the details of an indiivdual item from the database 
-app.get('./api/weed/:myWeedId', async(req, res) => {
+app.get('/api/weed/:myWeedId', async(req, res) => {
     try {
         const result = await client.query(`
         SELECT *
