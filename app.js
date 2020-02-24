@@ -63,7 +63,7 @@ app.get('/api/type', async (req, res ) => {
         ORDER BY name; 
         `);
 
-        res.json(resul.rows);
+        res.json(result.rows);
     }
     catch(err) {
         console.log(err);
