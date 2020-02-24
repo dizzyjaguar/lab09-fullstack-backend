@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 //API ROUTES
-
+//Smiley face route
 app.get('/', (req, res) => {
     res.json({
         message: 'hello! :D'
@@ -28,18 +28,18 @@ app.get('/', (req, res) => {
 
 app.get('/api/weed', async(req, res) => {
     try {
+        // this is a join, so that we get all the data,
+        // and instead of just the type_id we have joined 
+        // the type_id name from the types table to the main table
         const result = await client.query(`
-        SELECT 
-        strain,
-        type, 
-        smell,
-        thc,
-        outdoor,
-        indoor,
-        imgUrl
-        FROM weed;
+        SELECT bud.*, 
+        t.name as type
+        FROM weed bud
+        JOIN types t 
+        ON bud.type_id = t.id
+        ORDER BY bud.id;
         `);
-        console.log(result);
+        
         res.json(result.rows);
 
     } catch (err) {
