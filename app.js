@@ -49,7 +49,24 @@ app.get('/api/weed', async(req, res) => {
     }
 });
 
+//types route
+app.get('/api/type', async (req, res ) => {
+    try {
+        const result = await client.query(`
+        SELECT *
+        FROM types
+        ORDER BY name; 
+        `);
 
+        res.json(resul.rows);
+    }
+    catch(err) {
+        console.log(err);
+        res.status(500).json({
+            error:err.message || err
+        });
+    }
+});
 
 
 
