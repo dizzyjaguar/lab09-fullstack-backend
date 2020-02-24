@@ -69,7 +69,7 @@ app.get('/api/type', async (req, res ) => {
 });
 
 //POST route so we can post data to the database from our React Form
-app.post('/api/weed', async (req, res) => {
+app.post('/api/weed', async(req, res) => {
     // using req.body instead of req.params or req.query, both of which belong to GET requests
     try {
         console.log(req.body);
@@ -80,7 +80,7 @@ app.post('/api/weed', async (req, res) => {
             RETURNING *;    
         `,
         // pass the values in an array so that pg.Client can sanitize them
-            [req.body.strain, req.body.typeId, req.body.smell, req.body.thc, req.body.outdoor, req.body.indoor, req.body.imgUrl]
+        [req.body.strain, req.body.typeId, req.body.smell, req.body.thc, req.body.outdoor, req.body.indoor, req.body.imgUrl]
         );
 
         // return just the first result of the query
@@ -93,6 +93,27 @@ app.post('/api/weed', async (req, res) => {
         });
     }
 });
+
+//showing the details of an indiivdual item from the database 
+app.get('./api/weed/:myWeedId', async(req, res) => {
+    try {
+        const result = await client.query(`
+        SELECT *
+        FROM weed 
+        WHERE weed.id=$1`,
+         // the second parameter is an array of values to be SANITIZED then inserted into the query
+        // i only know this because of the `pg` docs
+        [req.params.myWeedId]);
+        res.json(result.rows);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error:err.message || err
+        });
+    }
+});
+
 
 
 
