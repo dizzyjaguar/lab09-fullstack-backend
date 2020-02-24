@@ -15,8 +15,13 @@ client.connect();
 //application setup
 const app = express();
 
-app.use(morgan('dev'));
-app.use(cors());
+app.use(morgan('dev')); //http logging
+app.use(cors()); // enable CORS request
+app.use(express.static('public')); // server files from /public folder, i think this is for if you have photos in your repository
+app.use(express.json()); // enable reading incoming json data
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+
 
 //API ROUTES
 //Smiley face route
@@ -115,23 +120,7 @@ app.get('./api/weed/:myWeedId', async(req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// this declaring port as our environment variable or just port 3000
 const port = process.env.PORT || 3000;
 
 // start server
