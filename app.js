@@ -68,6 +68,32 @@ app.get('/api/type', async (req, res ) => {
     }
 });
 
+//POST route so we can post data to the database from our React Form
+app.post('/api/weed', async (req, res) => {
+    // using req.body instead of req.params or req.query, both of which belong to GET requests
+    try {
+        console.log(req.body);
+        // create a new weed entry that comes in the req.body
+        const result = await client.query(`
+            INSERT INTO weed (strain, type_id, smell, thc, outdoor, indoor, imgUrl)
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            RETURNING *;    
+        `,
+        // pass the values in an array so that pg.Client can sanitize them
+            [req.body.strain, req.body.typeId, req.body.smell, req.body.thc, req.body.outdoor, req.body.indoor, req.body.imgUrl]
+        );
+
+        // return just the first result of the query
+        res.json(result.rows[0]);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
+
 
 
 
