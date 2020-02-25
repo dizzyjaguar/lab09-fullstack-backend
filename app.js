@@ -121,6 +121,38 @@ app.get('/api/weed/:myWeedId', async(req, res) => {
 });
 
 
+//strain, type_id, smell, thc, outdoor, indoor, imgUrl
+
+//Update Route
+app.put('/api/weed', async(req, res) => {
+    try {
+        const result = await client.query(`
+            UPDATE weed
+            SET strain = '${req.body.name}',
+                type_id = '${req.body.type_id}',
+                smell = '${req.body.smell}',
+                thc = '${req.body.thc}',
+                outdoor = '${req.body.outdoor}',
+                indoor = '${req.body.indoor}',
+                imgUrl = '${req.body.imgUrl}'
+            WHERE id = ${req.body.id};
+        `,
+        );
+        res.json(result.rows[0]); // return just the first result of our query
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
+
+
+
+
+
+
 // this declaring port as our environment variable or just port 3000
 const port = process.env.PORT || 3000;
 
