@@ -129,7 +129,7 @@ app.put('/api/weed', async(req, res) => {
         console.log(req.body.id);
         const result = await client.query(`
             UPDATE weed
-            SET strain = '${req.body.name}',
+            SET strain = '${req.body.strain}',
                 type_id = '${req.body.type_id}',
                 smell = '${req.body.smell}',
                 thc = '${req.body.thc}',
