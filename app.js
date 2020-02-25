@@ -152,6 +152,23 @@ app.put('/api/weed', async(req, res) => {
     }
 });
 
+//Delete Route
+app.delete('/api/weed/:myWeedId', async(req, res) => {
+    try {
+        const result = await client.query(`
+        DELETE FROM weed where id = ${req.params.myWeedId}
+        `)
+
+        res.json(result.rows);
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).json({
+            error: err.message || err
+        });
+    }
+});
+
 
 
 
