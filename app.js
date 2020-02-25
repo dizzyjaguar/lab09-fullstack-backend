@@ -126,7 +126,10 @@ app.get('/api/weed/:myWeedId', async(req, res) => {
 //Update Route
 app.put('/api/weed', async(req, res) => {
     try {
-        console.log(req.body.id);
+        console.log(req, 'this is a req');
+
+        console.log(req.body, 'this is a req body');
+        
         const result = await client.query(`
             UPDATE weed
             SET strain = '${req.body.strain}',
